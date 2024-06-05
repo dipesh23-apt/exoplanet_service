@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exoplanet Microservice API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff6600;
+            text-align: center;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #3366cc;
+        }
+        pre {
+            background-color: #e6e6e6;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exoplanet Microservice API Documentation</h1>
+        <div class="endpoint">
+            <h2>1. Add an Exoplanet</h2>
+            <p><strong>Endpoint:</strong> <code>/exoplanets</code> (POST)</p>
+            <p><strong>Request Body:</strong></p>
+            <pre>{
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "distance": float64,
+    "radius": float64,
+    "mass": float64 (optional),
+    "type": "GasGiant" | "Terrestrial"
+}</pre>
+        </div>
+        <div class="endpoint">
+            <h2>2. List Exoplanets</h2>
+            <p><strong>Endpoint:</strong> <code>/exoplanets</code> (GET)</p>
+        </div>
+        <div class="endpoint">
+            <h2>3. Get Exoplanet by ID</h2>
+            <p><strong>Endpoint:</strong> <code>/exoplanets/{id}</code> (GET)</p>
+        </div>
+        <div class="endpoint">
+            <h2>4. Update Exoplanet</h2>
+            <p><strong>Endpoint:</strong> <code>/exoplanets/{id}</code> (PUT)</p>
+            <p><strong>Request Body:</strong></p>
+            <pre>{
+    "name": "string",
+    "description": "string",
+    "distance": float64,
+    "radius": float64,
+    "mass": float64 (optional),
+    "type": "GasGiant" | "Terrestrial"
+}</pre>
+        </div>
+        <div class="endpoint">
+            <h2>5. Delete Exoplanet</h2>
+            <p><strong>Endpoint:</strong> <code>/exoplanets/{id}</code> (DELETE)</p>
+        </div>
+        <div class="endpoint">
+            <h2>6. Fuel Estimation</h2>
+            <p><strong>Endpoint:</strong> <code>/exoplanets/{id}/estimate-fuel</code> (GET)</p>
+            <p><strong>Query Parameter:</strong> <code>crew_capacity</code> (int)</p>
+        </div>
+        <div class="footer">
+            &copy; 2024 Exoplanet Microservice. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

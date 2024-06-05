@@ -9,7 +9,7 @@ import (
     // "fmt"
 )
 
-func AddExoplanet(id, name, description, exoType string, distance, radius, mass float64) error {
+func AddExoplanet(id, name, description, exoType string, distance int, radius, mass float64) error {
     exoplanet, err := factory.CreateExoplanet(exoType, id, name, description, distance, radius, mass)
     if err != nil {
         return err
@@ -30,7 +30,7 @@ func GetExoplanetByID(id string) (interface{}, error) {
     return exoplanet, nil
 }
 
-func UpdateExoplanet(id, name, description, exoType string, distance, radius, mass float64) error {
+func UpdateExoplanet(id, name, description, exoType string, distance int, radius, mass float64) error {
     exoplanet, err := factory.CreateExoplanet(exoType, id, name, description, distance, radius, mass)
     if err != nil {
         return err
@@ -60,6 +60,6 @@ func EstimateFuel(id string, crewCapacity int) (float64, error) {
         gravity = exo.Mass / (radius * radius)
     }
 
-    fuel := (distance / (gravity * gravity)) * float64(crewCapacity)
+    fuel := (float64(distance) / (gravity * gravity)) * float64(crewCapacity)
     return fuel, nil
 }

@@ -6,7 +6,7 @@ import (
     "exoplanet-service/models"
 )
 
-func CreateExoplanet(exoType string, id, name, description string, distance, radius, mass float64) (interface{}, error) {
+func CreateExoplanet(exoType string, id, name, description string, distance int, radius, mass float64) (interface{}, error) {
     switch exoType {
     case "GasGiant":
         return &models.GasGiant{
@@ -32,6 +32,6 @@ func CreateExoplanet(exoType string, id, name, description string, distance, rad
             Mass: mass,
         }, nil
     default:
-        return nil, errors.New("invalid exoplanet type")
+        return nil, errors.New("Invalid exoplanet type")
     }
 }

@@ -5,11 +5,12 @@ import (
     "exoplanet-service/controllers"
     "github.com/gorilla/mux"
     "net/http"
-    "fmt"
+    "log"
 )
 
 func main() {
     r := mux.NewRouter()
+    r.HandleFunc("/", controllers.ShowAPIDocumentation).Methods("GET")
 
     r.HandleFunc("/exoplanets", controllers.AddExoplanet).Methods("POST")
     r.HandleFunc("/exoplanets", controllers.ListExoplanets).Methods("GET")
@@ -18,6 +19,10 @@ func main() {
     r.HandleFunc("/exoplanets/{id}", controllers.DeleteExoplanet).Methods("DELETE")
     r.HandleFunc("/exoplanets/{id}/estimate-fuel", controllers.EstimateFuel).Methods("GET")
 
+    log.Println("Starting Exoplanet Microservice on port 8080")
+
+    // Start the server
     http.ListenAndServe(":8080", r)
-    fmt.Println("Listening on Port :8080")
+    // http.ListenAndServe(":8080", r)
+    // fmt.Println("Listening on Port :8080")
 }

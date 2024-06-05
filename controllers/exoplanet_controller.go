@@ -7,14 +7,19 @@ import (
     "net/http"
     "github.com/gorilla/mux"
     "strconv"
+    "html/template"
 )
+func ShowAPIDocumentation(w http.ResponseWriter, r *http.Request) {
+    tmpl := template.Must(template.ParseFiles("templates/index.html"))
+    tmpl.Execute(w, nil)
+}
 
 func AddExoplanet(w http.ResponseWriter, r *http.Request) {
     var data struct {
         ID          string  `json:"id"`
         Name        string  `json:"name"`
         Description string  `json:"description"`
-        Distance    float64 `json:"distance"`
+        Distance    int `json:"distance"`
         Radius      float64 `json:"radius"`
         Mass        float64 `json:"mass,omitempty"`
         Type        string  `json:"type"`
@@ -50,7 +55,7 @@ func UpdateExoplanet(w http.ResponseWriter, r *http.Request) {
     var data struct {
         Name        string  `json:"name"`
         Description string  `json:"description"`
-        Distance    float64 `json:"distance"`
+        Distance    int     `json:"distance"`
         Radius      float64 `json:"radius"`
         Mass        float64 `json:"mass,omitempty"`
         Type        string  `json:"type"`
